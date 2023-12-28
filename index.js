@@ -320,6 +320,9 @@ function parseContentData(data){
     // 更新文檔版本
     document.querySelector('meta[name="version"]').setAttribute("content", data["版本"]);
     document.documentElement.style.setProperty('--version-number', JSON.stringify(data["版本"]));
+    // 尾頁版本和日期
+    document.querySelector('section#endcover span#version').innerText += data["版本"];
+    document.querySelector('section#endcover span#edit-date').innerText += data["日期"];
 
     // 處理表一
     table1 = document.getElementById("chap1-charlist");
