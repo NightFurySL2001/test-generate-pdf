@@ -482,5 +482,5 @@ function generateAppendixIndividualTable(componentList) {
         }
     }
 
-    generateFootnotes(parsedRefs, refEndnotesNode, 'appendix1', addTagBehindComment=true)
+    generateFootnotes(parsedRefs, refEndnotesNode, 'appendix1', addTagBehindComment=false)
 }

@@ -55,7 +55,6 @@ section#intro ol#intro-collect-char-rules {
 
 /* 頁面内容設置 */
 section.content {
-    page: content;
     page-break-after: always;
 }
 /* 内容字體設置 */
@@ -124,6 +123,7 @@ table.charlist tr td span.big5 {
 }
 table.charlist tr td span.big5 span.hkscs{
     font-size: 0.5em; /* HKSCS 的 H- 標簽縮小*/
+    display: inline;
 }
 table.charlist tr td span.sample-char{
     font-size: 3em;
@@ -190,10 +190,13 @@ section#chap3 {
     page: chap3;
 }
 section#appendix1 {
-    page: appendix1;
+    page: appx1;
 }
 section#endcover {
     page: endcover;
+    position: relative;
+    height: 100%;
+    width: 100%;
 }
 
 @media print {
@@ -254,16 +257,16 @@ section#endcover {
             vertical-align: bottom;
         }
     }
-    @page appendix1 {
+    @page appx1 {
         @top-left {
             content: "傳承字形推薦形體表（附錄一）";
             vertical-align: bottom;
         }
     }
+
     @page endcover {
         @top-left {
             content: none;
-            vertical-align: bottom;
         }
         @top-right {
             content: none;
