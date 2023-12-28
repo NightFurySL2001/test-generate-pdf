@@ -1,0 +1,65 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        ol { 
+            padding-left: 0;
+            margin-left: 2.5em;
+        }
+        ol li { display: block }
+        ol li:before { 
+            content: counter(item) ". ";
+            counter-increment: item;
+            width: 2.5em;
+            display: inline-block;
+            margin-left: -2.5em;
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 1in 1.25in;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section id="chap1">
+        <h2>Endnotes</h2>
+        <ol>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat purus vitae massa maximus, id gravida tellus tempus.</li>
+<li>Morbi egestas nisi non felis dapibus, eu rutrum massa varius. Fusce interdum dolor at lectus mattis bibendum.</li>
+<li>Phasellus egestas mauris id lacus lacinia, sed condimentum nisi sodales. Donec at ante non erat ornare malesuada at ut ante.</li>
+<li>Nunc hendrerit tortor non sapien sollicitudin, vitae placerat sapien gravida. Morbi tempor lacus finibus sem rhoncus, quis molestie metus ultricies.</li>
+<li>Proin tempus mi non accumsan accumsan. In eu tortor congue, euismod enim ut, dapibus nulla.</li>
+<li>Mauris fringilla massa quis pharetra facilisis. Duis in mauris accumsan, dictum erat ut, tincidunt enim. Integer aliquet nibh ultrices lacinia aliquam.</li>
+<li>Nullam in diam rhoncus, elementum arcu nec, aliquet dui. Sed consectetur turpis vitae euismod accumsan.</li>
+<li>Mauris elementum nibh eget consectetur rutrum. Praesent non turpis sit amet urna ornare blandit. Curabitur sagittis ipsum elementum, vestibulum diam quis, imperdiet tellus.</li>
+<li>Fusce sagittis magna eu felis finibus, eu congue est iaculis. Donec congue nunc in laoreet ultrices.</li>
+<li>Duis ultrices libero elementum, bibendum neque venenatis, ultricies purus.</li>
+<li>Pellentesque faucibus ipsum eget ex accumsan, a ultricies erat iaculis. Praesent ullamcorper arcu eu nisi facilisis, quis vestibulum lectus pretium.</li>
+<li>Maecenas id turpis ac ligula molestie rhoncus eu cursus elit. Curabitur finibus nisl sit amet nunc condimentum varius.</li>
+<li>Donec non velit euismod, lobortis lacus nec, hendrerit diam.</li>
+<li>Donec laoreet erat vitae mi feugiat dignissim. Ut efficitur tellus quis ligula placerat pulvinar. Etiam tempor ex nec magna gravida, sed iaculis ligula hendrerit.</li>
+<li>Morbi vehicula mi sit amet libero venenatis, sit amet faucibus lacus fermentum. Vivamus sit amet massa sed lorem eleifend accumsan.</li>
+<li>Quisque sit amet metus id diam dictum vestibulum. Suspendisse aliquam dolor eget magna auctor scelerisque. Vestibulum pulvinar massa ac vulputate mattis.</li>
+<li>Aliquam vel nisi eget orci pretium tincidunt eget nec quam.</li>
+<li>Aliquam vel ex scelerisque, lacinia justo et, consectetur nisl. Ut fringilla quam sed libero euismod, consequat feugiat velit consectetur.</li>
+<li>Fusce sed leo sed nibh luctus finibus eu in dui. Maecenas nec nulla ullamcorper ex elementum tincidunt. Nullam id arcu condimentum metus gravida venenatis vel at felis.</li>
+<li>Donec et est a diam facilisis vehicula ut nec mauris.</li>
+<li>Maecenas in turpis lacinia, fringilla ante at, molestie enim. Duis dignissim justo fringilla augue facilisis scelerisque.</li>
+<li>Mauris ultricies metus feugiat ex dictum lobortis.</li>
+<li>Fusce a eros nec neque gravida egestas et non lacus. Pellentesque eu nisi eu ex maximus ullamcorper. In sagittis lacus ac tempor suscipit.</li>
+<li>Donec sed ligula imperdiet, luctus dui condimentum, hendrerit eros. Sed dapibus purus vitae urna aliquet ullamcorper.</li>
+<li>Nulla sollicitudin risus id sem mollis tempor.</li>
+<li>Aenean nec leo sit amet magna consequat semper. Etiam eu velit non ipsum maximus viverra ac nec nisl.</li>
+<li>Nam dignissim dui in risus interdum, nec porttitor sem iaculis. Aliquam quis massa nec lorem vulputate pulvinar vitae non nulla.</li>
+<li>Etiam sed lorem eget est gravida varius et non tellus. Sed eu tortor in ante fermentum cursus vitae vel dolor. Etiam eget enim id elit vehicula tempor.</li>
+<li>Donec in nisi ullamcorper, facilisis nunc eget, porttitor velit.</li>
+<li>Cras eleifend orci at justo sodales, nec pulvinar felis semper.</li>
+        </ol>
+        <table></table>
+    </section>
+</body>
+<script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+</html>
