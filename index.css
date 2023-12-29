@@ -69,28 +69,31 @@ h2 {
     margin-bottom: 0.5em;
     font-size: 1.2em;
     font-family: var(--serif-header-font);
+    page-break-after: avoid;
 }
 h3, h4 {
     font-family: var(--serif-header-font);
     font-size: 1em;
     text-align: left;
     margin-block: 0.5em;
-}
-section.content p {
-    line-height: 1.5em;
-    margin-bottom: 1em;
+    page-break-after: avoid;
 }
 /* SVG圖片 */
 .picture-char {
     display: inline;
     height: 1em;
     width: 1em;
+    line-height: 1em;
     /* 根據西文基綫對齊底部，然後往下壓 */
     vertical-align: baseline;
     position: relative;
     bottom: -0.12em;
 }
 
+section.content p {
+    line-height: 1.5em;
+    margin-bottom: 1em;
+}
 
 /* 表格 */
 table {
@@ -102,7 +105,8 @@ table tr, table td {
 }
 /* 表格單元格的分類標題（表三分級用） */
 table.charlist tr th.part-header {
-    background-color: yellow;
+    background-color: #ffc;
+    color: #e26c09;
     width: 12.5%;
     border: 0.0001em solid black;
     font-weight: normal;
@@ -161,7 +165,12 @@ section#appendix1 table td {
     padding: 4px 6px;
 }
 section#appendix1 table#appendix1-similar-component th {
-    width: max-content; /* 組合部件標題 */
+    width: 3em; /* 組合部件標題 */
+    font-size: 1.5em;
+    font-weight: normal;
+    background-color: #ffc;
+    color: #e26c09;
+    border: 0.0001em solid black;
 }
 section#appendix1 table#appendix1-individual-component td {
     width: 25%; /* 單獨部件4個一行，25% */
@@ -171,11 +180,11 @@ section#appendix1 table p.header-component {
 }
 section#appendix1 table p.shown-char {
     font-size: 2em;
-    line-height: 1em;
+    line-height: 1.08em;
     margin: 0;
 }
 section#appendix1 table .sample-variant-char {
-    font-family: 'I.MingVar';
+    font-family: var(--variant-font);
 }
 
 
@@ -283,7 +292,10 @@ section#endcover {
     }
     
     
-    tr, td {
+    tr, th, td {
         page-break-inside: avoid;
+    }
+    th, td {
+        page-break-before: avoid;
     }
 }

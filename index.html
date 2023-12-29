@@ -5,11 +5,23 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="index.css">
     <style>
+        /* 引入網頁字型 */
+        @font-face {
+            /* 附錄用的異體字形 */
+            font-family: 'I.MingWebVar';
+            src: url('webfont/I.MingWebVar.otf');
+        }
+        @font-face {
+            font-family: 'Sarasa Mono CL';
+            src: url('webfont/I.Iosevka.otf'), local('Sarasa Mono CL');
+        }
+
         :root {
             --serif-header-font: 'TenGenMin', 'Source Han Serif K';
             --text-font: 'I.Ming', 'Source Han Serif K';
-            --big5-code-font: 'Sarasa Mono CL', Courier, monospace;
-            --reference-tag-font: 'Sarasa UI CL', 'I.SHSans VF Medium', 'Segoe UI', sans-serif;
+            --variant-font: 'I.MingWebVar', 'I.MingVar';
+            --big5-code-font: 'Sarasa Mono CL', 'Consolas', monospace;
+            --reference-tag-font: 'Yu Gothic UI Semibold', 'I.SHSans VF Medium', 'Segoe UI', sans-serif;
             --page-header-font: 'Yu Gothic UI Semibold', 'I.SHSans VF Medium', 'Segoe UI', sans-serif;
         }
         * {
@@ -53,7 +65,7 @@
         <ol id="intro-collect-char-rules">
             <li>完全同形字只收錄一次。例如「好」既指美善、喜愛，亦爲「婦好」之「好」；「份」既指整體裏的一部份、量詞等，也是「彬」字的古代異體。本表不會收錄兩個「好」字或兩個「份」字。 </li>
             <li>有不同音義的形近字分別收錄，絕不相混。例如「刊」和「刋」、「券」和「劵」、「胄」和「冑」、「苟」和「茍」、「苜」和「𥄕」、「萑」和「雈」、「栝」和「桰」、「銛」和「銽」、「朏」和「胐」等組合，前者與後者音義有別，是不同的字，本表皆分列。</li>
-            <li>異體字之間，若構形或抽象字形相似，只是當中的構件有少許形近之差異，皆以傳承字形推薦形體統一之。例如「眞」和「<span class="handwriting-form">真</span>」、「直」和「<span class="handwriting-form">直󠄄</span>」、「青」和「<span class="handwriting-form">青</span>」、「俞」和「<span class="handwriting-form">俞</span>」、「爲」和「<span class="handwriting-form">為</span>」、「敎」和「<span class="handwriting-form">教</span>」、「査」和「<span class="handwriting-form">查</span>」、「姸」和「<span class="handwriting-form">妍</span>」、「令」和「<span class="handwriting-form">令󠄂</span>」、「犮」和「<span class="handwriting-form">犮󠄂</span>」、「吿」和「<span class="handwriting-form">告</span>」、「丟」和「丢」等組合，前後兩者皆同音同義，字的構形或抽象字形也相似，只是某些地方的筆畫或寫法相異。其中，前者是傳承字形，字理佔優。後者卻只是手寫時變異而成的形體，有違傳承字形原則。因此我們俱以前者統一之。 </li>
+            <li>異體字之間，若構形或抽象字形相似，只是當中的構件有少許形近之差異，皆以傳承字形推薦形體統一之。例如「眞」和「<span class="handwriting-form">真󠄃</span>」、「直」和「<span class="handwriting-form">直󠄄</span>」、「青」和「<span class="handwriting-form">青</span>」、「俞」和「<span class="handwriting-form">俞</span>」、「爲」和「<span class="handwriting-form">為</span>」、「敎」和「<span class="handwriting-form">教</span>」、「査」和「<span class="handwriting-form">查</span>」、「姸」和「<span class="handwriting-form">妍</span>」、「令」和「<span class="handwriting-form">令󠄂</span>」、「犮」和「<span class="handwriting-form">犮󠄂</span>」、「吿」和「<span class="handwriting-form">告</span>」、「丟」和「丢」等組合，前後兩者皆同音同義，字的構形或抽象字形也相似，只是某些地方的筆畫或寫法相異。其中，前者是傳承字形，字理佔優。後者卻只是手寫時變異而成的形體，有違傳承字形原則。因此我們俱以前者統一之。 </li>
             <li>異體字之間，若構形明顯相異，但皆能立足於字理，則並收之。如「峰」和「峯」、「群」和「羣」、「煙」和「烟」、「麪」和「麵」、「𠝹」和「鎅」、「焰」和「燄」、「線」和「綫」、「糉」和「粽」、「雙」和「双」、「釁」和「衅」等。 </li>
             <li>異體字之間，若構形明顯相異，但部份形體字理較薄弱，或另有原因，以致不宜取該異體，則以<span class="not-suggested">灰底暗紅色</span>標示，並以註釋說明。例如「么」宜作「幺」，「匆」宜作「怱」或「悤」，「裡」宜作「裏」等。</li>
             <li>非全同異體字之間，即使該形體的字理較薄弱，但有已獲約定俗成的義項分化作用，我們會承認該分化。如「着、両」等字，皆有其專指義項並廣爲世人接受，我們並不主張以「著、兩」等字取代之。 </li>
@@ -65,10 +77,10 @@
             我們強烈呼籲字型製作者以字理爲本，在製作傳承字形的字型時，不要盲從「原字集分離原則」這違反傳承字形原則的過時技術副產品。否則，若製作者只把「値」、「靑」、「爲」等傳承字形，放在 5024、9751、7232 這些正體（繁體）中文「事實標準」裏少用的碼位；至於正體（繁體）中文「事實標準」裏常用的碼位503C、9752、70BA，卻放置着違反傳承字形規定的「值」、「 青」、「為」等字形，只會令用戶容易踩中陷阱，誤用非傳承字形。這種做法顯然違反選擇傳承字形用戶之意願，絕不可取。
         </p>
         <p>
-            在本表，我們把過往Big5碼標於漢字上方，把Unicode 碼標在漢字下方。若字之上方標示「-」，表示該字沒有 Big5 碼；若字之上方標示前面帶有「H-」，表示該字的Big5碼源於HKSCS；若一字下方有超過一個編碼，即Unicode 在多於一個碼位上收錄了本應整併起來的字。製作傳承字形的字型時，製作者在這些碼位上都應該放置傳承字形，不應以「原字集分離原則」爲藉口安放非傳承字形。而序跋註釋裏的字碼，若無特別說明，皆指Unicode碼。此外，Unicode 擴展B區起的漢字，至今仍有不少程式不支援，或者尚未與基本區、擴展A區的漢字取齊。因此若非必要，本表盡可能不取擴展B區及其後區域的編碼。 
+            在本表，我們把過往Big5碼標以等寬字型於漢字上方，把Unicode碼以襯綫字型標在漢字下方。若字之上方標示減號「-」，表示該字沒有 Big5 碼；若字之上方標示前面帶有「H-」，表示該字的Big5碼源於HKSCS；若一字下方有超過一個編碼，即Unicode 在多於一個碼位上收錄了本應整併起來的字。製作傳承字形的字型時，製作者在這些碼位上都應該放置傳承字形，不應以「原字集分離原則」爲藉口安放非傳承字形。而序跋註釋裏的字碼，若無特別說明，皆指Unicode碼。此外，Unicode 擴展B區起的漢字，至今仍有不少程式不支援，或者尚未與基本區、擴展A區的漢字取齊。因此若非必要，本表盡可能不取擴展B區及其後區域的編碼。 
         </p>
         <p>
-            本表所收錄的形體，皆爲我們廣泛採樣後，整理出既盡力符合字理，也獲大眾約定俗成的寫法，即傳承字形推薦形體。大家可直接以本表字形爲準繩。爲節省篇幅，本表每字只收一形，理論上即《檢校表》的深藍色者。爲了方便字型製作者查閲，編者也在本表附錄了《檢校表》中所推薦的其他異體字形，例如《檢校表》的淺藍色或綠色字形；詳細的部件原則解説可參考《檢校表》的說明。若字型製作者按這些字形製字，我們認爲亦絕無問題，只要統一相同部件的字形處理即可。至於本表尚未收錄的字，只要在本表中翻査其所從部件的字形，並按照《檢校表》的規定，即可知悉該字的傳承字形推薦形體。
+            本表所收錄的形體，皆爲我們廣泛採樣後，整理出既盡力符合字理，也獲大眾約定俗成的寫法，即傳承字形推薦形體。大家可直接以本表字形爲準繩。爲節省篇幅，本表每字只收一形，理論上即《檢校表》的深藍色者。爲了方便字型製作者查閲，編者也在本表附錄了《檢校表》中所推薦的其他異體字形，例如《檢校表》的淺藍色或綠色字形。詳細的部件原則解說可參考《檢校表》的說明。若字型製作者按這些字形製字，我們認爲亦絕無問題，只要統一相同部件的字形處理即可。至於本表尚未收錄的字，只要在本表中翻査其所從部件的字形，並按照《檢校表》的規定，即可知悉該字的傳承字形推薦形體。
         </p>
     </section>
 
@@ -119,7 +131,7 @@
     <section id="appendix1" class="content">
         <h2 lang="ko" id="appendix1-header">附錄一：變體部件表</h2>
         <p class="intro-text">
-            本表列出《檢校表》所接受的其他異體字形。本表標記使用的顏色意義如下：本表所使用的字形以黑色標示；符合字理且廣受今天大眾約定俗成的寫法，以<span class="recommended-form">海色（深藍色）</span>標示；符合字理但在今天未必是最約定俗成的寫法，以<span class="orthography-form">天色（淺藍色）</span>標示；稍爲遷就美觀需要的常見寫法，則以<span class="aesthetic-form">地色（草葉綠色）</span>標示。詳細的部件解説請參考《檢校表》內文。
+            本表列出《檢校表》所接受的其他異體字形。本表標記使用的顏色意義如下：本表所使用的字形以黑色標示；符合字理且廣受今天大眾約定俗成的寫法，以<span class="recommended-form">海色（深藍色）</span>標示；符合字理但在今天未必是最約定俗成的寫法，以<span class="orthography-form">天色（淺藍色）</span>標示；稍爲遷就美觀需要的常見寫法，則以<span class="aesthetic-form">地色（草葉綠色）</span>標示。詳細的部件解說請參考《檢校表》內文。
         </p>
 
         <h3>形似部件</h3>
@@ -155,7 +167,7 @@
 // 文件進行排版
 window.PagedConfig = {
     auto: false,
-    before: async function() {
+    before: function() {
         // var xhttp = new XMLHttpRequest();
         // xhttp.onload = function() {
         //     if (this.status == 200) {

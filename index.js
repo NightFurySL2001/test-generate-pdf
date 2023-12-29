@@ -39,6 +39,13 @@ function generateNormalTable(list, tableNode, refEndnotesNode, uniqueTag) {
             tableNode.appendChild(newRow);
         }
     }
+    // 加上一个空白格，避免換頁時沒有寬度補充
+    if (newRow.childElementCount !== char_per_row && newRow.childElementCount !== 0) {
+        let fitCell = document.createElement("td");
+        fitCell.colSpan = char_per_row - newRow.childElementCount;
+        fitCell.style.width = 'auto';
+        newRow.appendChild(fitCell);
+    }
 
     generateFootnotes(parsedRefs, refEndnotesNode, uniqueTag)
 }
@@ -106,6 +113,14 @@ function generateSectionedTable(sectionList, tableNode, refEndnotesNode, uniqueT
                 tableNode.appendChild(newRow);
             }
         }
+
+        // 加上一个空白格，避免換頁時沒有寬度補充
+        if (newRow.childElementCount !== char_per_row && newRow.childElementCount !== 0) {
+            let fitCell = document.createElement("td");
+            fitCell.colSpan = char_per_row - newRow.childElementCount;
+            fitCell.style.width = 'auto';
+            newRow.appendChild(fitCell);
+        }
     }
 
     generateFootnotes(parsedRefs, refEndnotesNode, uniqueTag)
@@ -136,7 +151,7 @@ function createHanziCell(item, parsedRefs) {
     char.innerText = item.char; // 預覽漢字
     newCell.appendChild(char);
     
-    let uni = document.createElement("p");
+    let uni = document.createElement("span");
     uni.classList.add('unicode');
     uni.innerText = item.unicode; // unicode
     newCell.appendChild(uni);
@@ -287,11 +302,6 @@ function generateFootnotes(parsedRefs, refEndnotesNode, uniqueTag, addTagBehindC
         // 先加上註釋内容
         let commentText = document.createElement("span");
         commentText.innerHTML = refObj.comment; // 註釋文本
-        picturesInText = commentText.querySelectorAll("img");
-        // 將註釋裏面的圖片加上 CSS class 進行格式定義
-        picturesInText.forEach(element => {
-            element.classList.add('picture-char')
-        });
         newCommentItem.appendChild(commentText);
 
         // 可選擇是否在後面加返回前面的鏈接
@@ -316,6 +326,14 @@ function generateFootnotes(parsedRefs, refEndnotesNode, uniqueTag, addTagBehindC
     }
 }
 
+function setImageCSS(node){
+    picturesInText = node.querySelectorAll("img");
+    // 將註釋裏面的圖片加上 CSS class 進行格式定義
+    picturesInText.forEach(element => {
+        element.classList.add('picture-char')
+    });
+}
+
 function parseContentData(data){
     // 更新文檔版本
     document.querySelector('meta[name="version"]').setAttribute("content", data["版本"]);
@@ -328,16 +346,19 @@ function parseContentData(data){
     table1 = document.getElementById("chap1-charlist");
     refEndnotes1 = document.getElementById("chap1-endnotes");
     generateNormalTable(data["表一"], table1, refEndnotes1, 'table1');
+    setImageCSS(refEndnotes1)
     
     // 處理表二
     table2 = document.getElementById("chap2-charlist");
     refEndnotes2 = document.getElementById("chap2-endnotes");
     generateNormalTable(data["表二"], table2, refEndnotes2, 'table2');
+    setImageCSS(refEndnotes2)
 
     // 處理表三，不同格式
     table3 = document.getElementById("chap3-charlist");
     refEndnotes3 = document.getElementById("chap3-endnotes");
     generateSectionedTable(data["表三"], table3, refEndnotes3, 'table3');
+    setImageCSS(refEndnotes3)
 }
 
 
@@ -359,7 +380,7 @@ function generateAppendixSharedTable(componentGroups) {
 
         // 左邊的標題欄
         let headerCell = document.createElement('th');
-        headerCell.innerText = groupItem["group-title"];
+        headerCell.innerHTML = groupItem["group-title"];
         newRow.appendChild(headerCell);
 
         // 右邊的內容欄
@@ -388,22 +409,21 @@ function generateAppendixSharedTable(componentGroups) {
             
             // 異體部件預覽
             let sampleChar = document.createElement('span');
-            sampleChar.classList.add('sample-variant-char')
-            sampleCharRow.appendChild(sampleChar)
+            sampleChar.classList.add('sample-variant-char');
+            sampleCharRow.appendChild(sampleChar);
             if (Object.keys(component).includes("display-char")) {
                 // 預覽文字
                 if (Array.isArray(component["display-char"])) {
-                    component["display-char"].forEach(text => sampleChar.innerText += text)
+                    component["display-char"].forEach(text => sampleChar.innerText += text);
                 } else {
-                    sampleChar.innerText = component["display-char"]
+                    sampleChar.innerText = component["display-char"];
                 }
             } else if (Object.keys(component).includes("display-pic")) {
                 // 預覽圖片
                 if (Array.isArray(component["display-pic"])) {
-                    component["display-pic"].forEach(pic => sampleChar.innerHTML += pic)
-                    sampleChar.querySelectorAll("img").forEach(node => node.classList.add('picture-char'))
+                    component["display-pic"].forEach(pic => sampleChar.innerHTML += pic);1
                 } else {
-                    sampleChar.innerHTML += component["display-pic"]
+                    sampleChar.innerHTML += component["display-pic"];
                 }
             }
             //添加顏色
@@ -417,6 +437,7 @@ function generateAppendixSharedTable(componentGroups) {
             }
         }
     }
+    setImageCSS(table);
 }
 
 function generateAppendixIndividualTable(componentList) {
@@ -451,11 +472,14 @@ function generateAppendixIndividualTable(componentList) {
         
         // 異體漢字
         let sampleChar = document.createElement('span');
+        sampleChar.classList.add('sample-variant-char');
         sampleCharRow.appendChild(sampleChar);
+        // 同時允許，主要給（齋）
         if (Object.keys(component).includes("display-char")) {
             // 預覽文字
             sampleChar.innerText = component["display-char"];
-        } else if (Object.keys(component).includes("display-pic")) {
+        }
+        if (Object.keys(component).includes("display-pic")) {
             // 預覽圖片
             sampleChar.innerHTML += component["display-pic"];
         }
@@ -481,6 +505,15 @@ function generateAppendixIndividualTable(componentList) {
             tableNode.appendChild(newRow);
         }
     }
+    // 加上一个空白格，避免換頁時沒有寬度補充
+    if (newRow.childElementCount !== variant_component_per_row && newRow.childElementCount !== 0) {
+        let fitCell = document.createElement("td");
+        fitCell.colSpan = variant_component_per_row - newRow.childElementCount;
+        fitCell.style.width = 'auto';
+        newRow.appendChild(fitCell);
+    }
 
     generateFootnotes(parsedRefs, refEndnotesNode, 'appendix1', addTagBehindComment=false)
+    setImageCSS(tableNode);
+    setImageCSS(refEndnotesNode);
 }
