@@ -16,7 +16,7 @@ span.not-suggested, span.repeated {
 
 /* 前言 */
 section#intro span.handwriting-form {
-    font-family: "IPAmjMincho"; /* 其他字形 */
+    font-family: var(--intro-handwriting); /* 其他字形 */
 }
 section#intro ol#intro-collect-char-rules {
     list-style-type: cjk-decimal;
@@ -123,7 +123,7 @@ table.charlist tr td {
 }
 table.charlist tr td span {display: block;}
 table.charlist tr td span.big5 {
-    font-family: var(--big5-code-font); /* Big5 碼用代碼字體 */
+    font-family: var(--big5-value-font); /* Big5 碼用代碼字體 */
 }
 table.charlist tr td span.big5 span.hkscs{
     font-size: 0.5em; /* HKSCS 的 H- 標簽縮小*/
@@ -136,6 +136,8 @@ table.charlist tr td span.sample-char{
 }
 table.charlist tr td span.unicode{
     margin-bottom: 3px;
+    font-family: var(--unicode-value-font);
+    font-feature-settings: "tnum";
 }
 
 

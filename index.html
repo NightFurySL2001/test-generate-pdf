@@ -12,15 +12,23 @@
             src: url('webfont/I.MingWebVar.otf');
         }
         @font-face {
+            /* big5 碼 */
             font-family: 'Sarasa Mono CL';
             src: url('webfont/I.Iosevka.otf'), local('Sarasa Mono CL');
+        }
+        @font-face {
+            /* unicode 碼 */
+            font-family: 'Inter';
+            src: url('webfont/Inter-Regular.woff2'), local('Inter');
         }
 
         :root {
             --serif-header-font: 'TenGenMin', 'Source Han Serif K';
-            --text-font: 'I.Ming', 'Source Han Serif K';
+            --text-font: 'I.Ming', 'Source Han Serif K', serif;
             --variant-font: 'I.MingWebVar', 'I.MingVar';
-            --big5-code-font: 'Sarasa Mono CL', 'Consolas', monospace;
+            --intro-handwriting: 'I.MingWebVar', 'IPAmjMincho', 'Source Han Serif', serif;
+            --big5-value-font: 'Sarasa Mono CL', 'Consolas', monospace;
+            --unicode-value-font: 'Inter', 'Segoe UI', sans-serif;
             --reference-tag-font: 'Yu Gothic UI Semibold', 'I.SHSans VF Medium', 'Segoe UI', sans-serif;
             --page-header-font: 'Yu Gothic UI Semibold', 'I.SHSans VF Medium', 'Segoe UI', sans-serif;
         }
@@ -131,10 +139,13 @@
     <section id="appendix1" class="content">
         <h2 lang="ko" id="appendix1-header">附錄一：變體部件表</h2>
         <p class="intro-text">
-            本表列出《檢校表》所接受的其他異體字形。本表標記使用的顏色意義如下：本表所使用的字形以黑色標示；符合字理且廣受今天大眾約定俗成的寫法，以<span class="recommended-form">海色（深藍色）</span>標示；符合字理但在今天未必是最約定俗成的寫法，以<span class="orthography-form">天色（淺藍色）</span>標示；稍爲遷就美觀需要的常見寫法，則以<span class="aesthetic-form">地色（草葉綠色）</span>標示。詳細的部件解說請參考《檢校表》內文。
+            本附錄列出《檢校表》所接受的其他異體字形。本附錄標記使用的顏色意義如下：本《推薦形體表》所使用的字形且爲《檢校表》首選的字形，以黑色標示；符合字理且廣受今天大眾約定俗成的寫法，以<span class="recommended-form">海色（深藍色）</span>標示；符合字理但在今天未必是最約定俗成的寫法，以<span class="orthography-form">天色（淺藍色）</span>標示；稍爲遷就美觀需要的常見寫法，則以<span class="aesthetic-form">地色（草葉綠色）</span>標示。詳細的部件解說請參考《檢校表》內文。
         </p>
 
         <h3>形似部件</h3>
+        <p>
+            本表僅按照形似的變體部件歸類在一起。部分部件在更換爲其他異體后可能會導致字源混淆，但是如果字型製作者有合適的原因考量使用異體，編者認爲亦可接受，只要保證同一部件皆進行相同處理。
+        </p>
         <table id="appendix1-similar-component"></table>
 
         <h3>單獨部件</h3>
