@@ -14407,7 +14407,7 @@
             {"char":"𠂔", "unicode":"20094", "hkscs":true, "big5":"9AB4"},
             {"char":"𠫓", "unicode":"20AD3"},
             {"char":"𢧵", "unicode":"229F5"},
-            {"char":"𥨫", "unicode":"25A2B 2B058"},
+            {"char":"𥨫", "unicode":"25A2B", "unicode2":"2B058"},
             {"char":"𪚴", "unicode":"2A6B4"},
             {"char":"𬟏", "unicode":"2C7CF"}
         ]
