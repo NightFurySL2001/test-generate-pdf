@@ -5418,7 +5418,7 @@
         {"big5":"C5C7", "char":"龔", "unicode":"9F94"},
         {"big5":"C074", "char":"龜", "unicode":"9F9C"},
         {"big5":"FBF4", "char":"幺", "unicode":"5E7A", "hkscs":true, "ref":"么幺"},
-        {"big5":"D46D", "char":"勖", "unicode":"52D6", "ref":"勗勖"},
+        {"big5":"D46D", "char":"勖", "unicode":"52D6", "repeated":true, "ref":"勗勖"},
         {"big5":"A0DC", "char":"悤", "unicode":"60A4", "hkscs":true, "ref":"匆悤怱"},
         {"big5":"FC61", "char":"怱", "unicode":"6031", "hkscs":true, "ref":"匆悤怱"},
         {"big5":"FAC4", "char":"匳", "unicode":"5333", "hkscs":true, "ref":"奩匳"},
