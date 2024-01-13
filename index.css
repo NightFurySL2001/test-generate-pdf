@@ -220,6 +220,10 @@ section#endcover {
 }
 
 @media print {
+    body {
+        padding: 0;
+    }
+
     @page {
         size: A4;
         margin: 1in 1.214in; /* 左右盡量使漢字網格可以在12pt對齊35字 */
