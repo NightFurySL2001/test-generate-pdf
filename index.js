@@ -204,9 +204,8 @@ function parseEndnote(item, parsedRefs) {
                     refObj.comment = item.comment;
                 } else {
                     // 有註釋文本，出錯了
-                    alert('同樣標簽但在不同字符内可能有不同註釋，請只保留一個：' + item.ref);
                     console.log(refObj)
-                    console.log(refObj.comment)
+                    alert('同樣標簽但在不同字符内可能有不同註釋，請只保留一個：' + item.ref);
                 }
             }
 
@@ -321,7 +320,8 @@ function generateFootnotes(parsedRefs, refEndnotesNode, uniqueTag, addTagBehindC
             }
         }
         if (refObj.comment === undefined) {
-            alert('以下標簽沒有提供註釋内容文本（comment）：' + item.ref);
+            console.log(refObj)
+            alert('以下ref標簽沒有提供註釋内容文本（comment）：' + refObj.refTag);
         }
     }
 }

@@ -1,11 +1,16 @@
+/* 預覽網頁（非排版） */
+body {
+    padding: 2em;
+}
+
 /* 單元格填色 */
 .not-suggested {
-    border: 0.0001em solid black;
+    border: 0.01em solid black;
     background-color: #eee;
     color: #C0504D;
 }
 .repeated {
-    border: 0.0001em solid black;
+    border: 0.01em solid black;
     background-color: #eee;
     color: #00B050;
 }
@@ -14,59 +19,21 @@ span.not-suggested, span.repeated {
     border: none;
 }
 
-/* 前言 */
-section#intro span.handwriting-form {
-    font-family: var(--intro-handwriting); /* 其他字形 */
-}
-section#intro ol#intro-collect-char-rules {
-    list-style-type: cjk-decimal;
-    line-height: 1.5em;
-    margin-bottom: 1em;
-    padding-left: 2em;
-}
-
 /* 附錄 部件填色 */
 .recommended-form {color: #002060;}
 .orthography-form {color: #00B0F0;}
 .aesthetic-form {color: #538135;}
 
-/* 目錄 */
-#toc-list {
-    list-style-type: none;
-    padding-left: 0;
-}
-#toc-list li a {
-    color: black;
-}
-#toc-list li[data-title-level="h1"] {
-    font-family: var(--serif-header-font);
-    margin-top: 0.5em;
-}
-#toc-list li[data-title-level="h2"] {
-    font-family: var(--text-font);
-    margin-left: 2em;
-}
-
-#toc-list li a::after { /* 章節頁碼自動替換 */
-    content: target-counter(attr(href), page);
-    float: right;
-}
-
-
-/* 頁面内容設置 */
-section.content {
-    page-break-after: always;
-}
 /* 内容字體設置 */
 h1 {
     text-align: center;
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
     font-size: 1.5em;
     font-family: var(--page-header-font);
 }
 h2 {
     text-align: center;
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
     font-size: 1.2em;
     font-family: var(--serif-header-font);
     page-break-after: avoid;
@@ -90,9 +57,50 @@ h3, h4 {
     bottom: -0.12em;
 }
 
+/* 頁面内容設置 */
+section.content {
+    page-break-after: always;
+}
 section.content p {
     line-height: 1.5em;
     margin-bottom: 1em;
+    text-align: justify; /* 左右對齊 */
+    hanging-punctuation: end; /* 標點懸挂（chrome暫不支持） */
+}
+
+/* 前言 */
+section#intro p {
+    margin-bottom: 1.5em; /* 段落之間空行 */
+}
+section#intro span.handwriting-form {
+    font-family: var(--intro-handwriting); /* 其他字形 */
+}
+section#intro ol#intro-collect-char-rules {
+    list-style-type: cjk-decimal;
+    line-height: 1.5em;
+    margin-bottom: 1.5em;
+    padding-left: 2em;
+}
+
+/* 目錄 */
+#toc-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+#toc-list li a {
+    color: black;
+}
+#toc-list li[data-title-level="h1"] {
+    font-family: var(--serif-header-font);
+    margin-top: 0.5em;
+}
+#toc-list li[data-title-level="h2"] {
+    font-family: var(--text-font);
+    margin-left: 2em;
+}
+#toc-list li a::after { /* 章節頁碼自動替換 */
+    content: target-counter(attr(href), page);
+    float: right;
 }
 
 /* 表格 */
@@ -101,14 +109,14 @@ table {
     width: 100%;
 }
 table tr, table td {
-    border: 0.0001em solid black;
+    border: 0.01em solid black;
 }
 /* 表格單元格的分類標題（表三分級用） */
 table.charlist tr th.part-header {
     background-color: #ffc;
     color: #e26c09;
     width: 12.5%;
-    border: 0.0001em solid black;
+    border: 0.01em solid black;
     font-weight: normal;
     font-size: 2em;
 }
@@ -144,6 +152,7 @@ table.charlist tr td span.unicode{
 /* 注釋引用標簽 */
 a.ref-tag-in-table { /* 需要上一級是 position:relative */
     font-family: var(--reference-tag-font);
+    font-feature-settings: 'jp90'; /* 註斜點 */
     position: absolute;
     right: 4px;
     bottom: 4px;
@@ -172,7 +181,7 @@ section#appendix1 table#appendix1-similar-component th {
     font-weight: normal;
     background-color: #ffc;
     color: #e26c09;
-    border: 0.0001em solid black;
+    border: 0.01em solid black;
 }
 section#appendix1 table#appendix1-individual-component td {
     width: 25%; /* 單獨部件4個一行，25% */
@@ -213,7 +222,7 @@ section#endcover {
 @media print {
     @page {
         size: A4;
-        margin: 1in 1.25in;
+        margin: 1in 1.214in; /* 左右盡量使漢字網格可以在12pt對齊35字 */
 
         @bottom-center {
             content: "頁 " counter(page);
@@ -228,12 +237,12 @@ section#endcover {
         .pagedjs_margin-top {
             padding-bottom: 0.51em;
             background:
-            repeating-linear-gradient(to right,#000,#000 1px,transparent 1px,transparent 2px) 0 calc(100% - 0.38em)/100% 0.04em no-repeat; 
+            repeating-linear-gradient(to right,#000,#000 1px,transparent 1px,transparent 2px) 0 calc(100% - 0.38em)/100% 0.05em no-repeat; 
         }
         .pagedjs_margin-bottom {
             padding-top: 0.4em;
             background:
-            repeating-linear-gradient(to right,#000,#000 1px,transparent 1px,transparent 2px) 0 0.2em/100% 0.04em no-repeat;
+            repeating-linear-gradient(to right,#000,#000 1px,transparent 1px,transparent 2px) 0 0.2em/100% 0.05em no-repeat;
         }
     }
     @page {
