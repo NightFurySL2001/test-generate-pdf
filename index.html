@@ -189,6 +189,7 @@ window.PagedConfig = {
         // xhttp.open("GET", "recommended-char-list.json", false);
         // xhttp.send();
 
+        // 下載文件和排版
         return Promise.all([
             fetch("recommended-char-list.json")
             .then(response => response.json())
@@ -201,6 +202,8 @@ window.PagedConfig = {
                 parseAppendixData(responseText)
             })
         ])
+        // 才進行預覽
+        .then(() => {window.PagedPolyfill.preview();})
     },
     after: function() {
         class MyHandler extends Paged.Handler {
@@ -217,8 +220,6 @@ window.PagedConfig = {
             }
         }
         Paged.registerHandlers(MyHandler);
-        
-        window.PagedPolyfill.preview();
     }
 }
 
