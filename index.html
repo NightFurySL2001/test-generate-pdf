@@ -179,15 +179,21 @@
 window.PagedConfig = {
     auto: false,
     before: function() {
-        // var xhttp = new XMLHttpRequest();
-        // xhttp.onload = function() {
-        //     if (this.status == 200) {
-        //         let doc = JSON.parse(xhttp.responseText)
-        //         parseContentData(doc)
-        //     }
-        // };
-        // xhttp.open("GET", "recommended-char-list.json", false);
-        // xhttp.send();
+        class PopupHandler extends Paged.Handler {
+            constructor(chunker, polisher, caller) {
+                super(chunker, polisher, caller);
+            }
+            
+            afterRendered(pages) {
+                // 在完成排版后提示完成
+                alert(`排版完成，共有 ${pages.length} 頁。`);
+                
+                // 準備打印成PDF
+                // window.print()
+            }
+        }
+        // 注冊提示例程
+        Paged.registerHandlers(PopupHandler);
 
         // 下載文件和排版
         return Promise.all([
@@ -204,22 +210,6 @@ window.PagedConfig = {
         ])
         // 才進行預覽
         .then(() => {window.PagedPolyfill.preview();})
-    },
-    after: function() {
-        class MyHandler extends Paged.Handler {
-            constructor(chunker, polisher, caller) {
-                super(chunker, polisher, caller);
-            }
-            
-            afterRendered(pages) {
-                // 在完成排版后提示完成
-                alert(`排版完成，共有 ${pages.length} 頁。`);
-                
-                // 準備打印成PDF
-                // window.print()
-            }
-        }
-        Paged.registerHandlers(MyHandler);
     }
 }
 
