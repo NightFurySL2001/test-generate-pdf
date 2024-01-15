@@ -158,15 +158,15 @@ a.ref-tag-in-table { /* 需要上一級是 position:relative */
     bottom: 4px;
     font-size: 0.6em;
 }
-a.endnote-refer-back {
-    padding-inline-end: 0.25em;
-}
+
 /* 注釋列表設置 */
 ol.endnotes li {
-    margin-bottom: 4px;
+    margin-bottom: 0.5em;
 }
 ol.endnotes li a.endnote-refer-back {
+    padding-inline-end: 0.25em;
     line-height: 0.9em;
+    white-space: nowrap;
 }
 
 
