@@ -1091,7 +1091,7 @@
         {"big5":"AE5D", "char":"孫", "unicode":"5B6B"},
         {"big5":"B145", "char":"孰", "unicode":"5B70"},
         {"big5":"B447", "char":"孱", "unicode":"5B71"},
-        {"big5":"B446", "char":"孳", "unicode":"5B73", "unicode2":"5B73"},
+        {"big5":"B446", "char":"孳", "unicode":"5B73", "unicode2":"5B76"},
         {"big5":"B9E5", "char":"孵", "unicode":"5B75"},
         {"big5":"BEC7", "char":"學", "unicode":"5B78"},
         {"big5":"C0A9", "char":"孺", "unicode":"5B7A"},
