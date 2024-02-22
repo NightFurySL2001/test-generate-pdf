@@ -178,7 +178,7 @@
 // 文件進行排版
 window.PagedConfig = {
     auto: false,
-    before: function() {
+    before: async function() {
         class PopupHandler extends Paged.Handler {
             constructor(chunker, polisher, caller) {
                 super(chunker, polisher, caller);
@@ -196,7 +196,7 @@ window.PagedConfig = {
         Paged.registerHandlers(PopupHandler);
 
         // 下載文件和排版
-        return Promise.all([
+        return await Promise.all([
             fetch("recommended-char-list.json")
             .then(response => response.json())
             .then(responseText => {
