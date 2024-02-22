@@ -134,7 +134,7 @@ table.charlist tr td span.big5 {
     font-family: var(--big5-value-font); /* Big5 碼用代碼字體 */
 }
 table.charlist tr td span.big5 span.hkscs{
-    font-size: 0.5em; /* HKSCS 的 H- 標簽縮小*/
+    font-size: 0.6em; /* HKSCS 的 H- 標簽縮小*/
     display: inline;
 }
 table.charlist tr td span.sample-char{
@@ -156,7 +156,7 @@ a.ref-tag-in-table { /* 需要上一級是 position:relative */
     position: absolute;
     right: 4px;
     bottom: 4px;
-    font-size: 0.6em;
+    font-size: 0.75em;
 }
 
 /* 注釋列表設置 */
