@@ -257,7 +257,7 @@ section#endcover {
     }
     @page {  
         @top-right {
-            content: "版本：" var(--version-number);
+            content: "版本：" var(--version-number, '加載文件失敗');
             vertical-align: bottom;
         }
     }
