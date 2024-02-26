@@ -11,18 +11,26 @@ def getUnicodeChar(uniHex):
 def getBig5Char(byteHex, charset="big5"):
     return bytes.fromhex(byteHex).decode(charset)
 
-
+seenChars = set()
 def verifyValidRecord(record):
     print(record)
     currentChar = record["char"]
-
-    # check unicode
-    unichar = getUnicodeChar(record["unicode"])
     # override for special char to use unicode2
     if currentChar == "欅":
         currentChar = "櫸"
     elif currentChar == "㩮":
         currentChar = "攑"
+    
+    # check if no duplicates
+    if currentChar in seenChars:
+        if "repeated" in record and record["repeated"]:
+            pass
+        else:
+            raise Exception("Duplicated character: %s" % currentChar)
+    seenChars.add(currentChar)
+
+    # check unicode
+    unichar = getUnicodeChar(record["unicode"])
     assert unichar == currentChar
 
     # check big5
