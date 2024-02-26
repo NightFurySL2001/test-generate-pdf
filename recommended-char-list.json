@@ -13834,7 +13834,7 @@
             {"char":"窻", "unicode":"7ABB", "big5":"8E4F", "hkscs":true},
             {"char":"竈", "unicode":"7AC8", "big5":"9AB2", "hkscs":true},
             {"char":"竉", "unicode":"7AC9", "big5":"89A5", "hkscs":true},
-            {"char":"竍", "unicode":"7ACD"},
+            {"char":"竚", "unicode":"7ADA", "big5":"8E56", "hkscs":true},
             {"char":"竜", "unicode":"7ADC", "big5":"91CA", "hkscs":true},
             {"char":"竝", "unicode":"7ADD", "big5":"8E57", "hkscs":true},
             {"char":"笔", "unicode":"7B14", "big5":"9FE5", "hkscs":true},
