@@ -90,6 +90,9 @@
         <p>
             本表所收錄的形體，皆爲我們廣泛採樣後，整理出既盡力符合字理，也獲大眾約定俗成的寫法，即傳承字形推薦形體。大家可直接以本表字形爲準繩。爲節省篇幅，本表每字只收一形，理論上即《檢校表》的深藍色者。爲了方便字型製作者查閲，編者也在本表附錄了《檢校表》中所推薦的其他異體字形，例如《檢校表》的淺藍色或綠色字形。詳細的部件原則解說可參考《檢校表》的說明。若字型製作者按這些字形製字，我們認爲亦絕無問題，只要統一相同部件的字形處理即可。至於本表尚未收錄的字，只要在本表中翻査其所從部件的字形，並按照《檢校表》的規定，即可知悉該字的傳承字形推薦形體。
         </p>
+        <p>
+            本文檔以 <a href="https://pagedjs.org">Paged.js</a> 排版，<span id="browser-version">未知</span> 版瀏覽器渲染。
+        </p>
     </section>
 
     <section id="toc" class="content">
@@ -174,7 +177,9 @@
 
 <script async src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
 <script src="index.js"></script>
-<script>
+<script type="module">
+import BrowserDetector from './browser-dtector.js';
+
 // 文件進行排版
 window.PagedConfig = {
     auto: false,
@@ -194,6 +199,10 @@ window.PagedConfig = {
         }
         // 注冊提示例程
         Paged.registerHandlers(PopupHandler);
+
+        // 檢查瀏覽器版本
+        const browser_info = new BrowserDetector(window.navigator.userAgent).parseUserAgent();
+        document.getElementById("browser-version").innerText = browser_info["name"] + " " + browser_info["shortVersion"];
 
         // 下載文件和排版
         return await Promise.all([
