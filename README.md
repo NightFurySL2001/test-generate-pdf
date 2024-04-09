@@ -189,6 +189,8 @@
 
 `webfont/` 內的字型文件以各自的字型授權使用。`I.Iosevka` 及 `Inter` 以 SIL OFL 授權，`I.MingWebVar` 以 IPA開放字型授權協議 1.0版授權。
 
+[`pagedjs` 0.4.3](https://www.npmjs.com/package/pagedjs) 及 [`browser-dtector` 4.1.0](https://www.npmjs.com/package/browser-dtector) 爲冷凍的引用模塊，以 MIT 授權使用。
+
 ## 致謝
 
 感謝 [@rwxguo](https://github.com/rwxguo) 初期協助進行數據校驗。
