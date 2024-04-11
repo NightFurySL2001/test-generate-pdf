@@ -210,7 +210,7 @@ window.PagedConfig = {
         document.getElementById("browser-version").innerText = browser_info["name"] + " " + browser_info["shortVersion"];
 
         // 下載文件和排版
-        return await Promise.all([
+        return await Promise.allSettled([
             fetch("recommended-char-list.json")
             .then(response => response.json())
             .then(responseText => {
@@ -224,6 +224,7 @@ window.PagedConfig = {
         ])
         // 才進行預覽
         .then(() => {window.PagedPolyfill.preview();})
+        .catch((reason) => {alert("加載失敗，請刷新重試："+reason.toString())})
     }
 }
 
