@@ -198,7 +198,7 @@
         {"name": "𠂢部件", "type": "地", "display-char":"𠂢"},
         {"name": "羽部件", "type": "海", "display-char":"羽", "ref": "表三"},
         {"name": "𠨍部件", "type": "地", "display-char":"𠨍"},
-        {"name": "以部件", "type": "海", "display-char":"以", "ref": "字理差異", "comment": "依據字理應該區分，但於實際使用時可視爲設計差忽略。",
+        {"name": "以部件", "type": "海", "display-char":"以", "ref": "字理差異", "comment": "依據字理應該區分，但於實際使用時可視爲設計差忽略。"},
         {"name": "⺲(网)部件", "type": "天", "display-char":"罒"},
         {"name": "𥝌部件", "type": "地", "display-char":"𥝌"},
         {"name": "尔/尓部件", "type": "海", "display-char":"尔"},
