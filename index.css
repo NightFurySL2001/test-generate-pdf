@@ -30,6 +30,8 @@ h1 {
     margin-bottom: 1em;
     font-size: 1.5em;
     font-family: var(--page-header-font);
+    bookmark-level: 1;
+    bookmark-label: content();
 }
 h2 {
     text-align: center;
@@ -37,6 +39,8 @@ h2 {
     font-size: 1.2em;
     font-family: var(--serif-header-font);
     page-break-after: avoid;
+    bookmark-level: 2;
+    bookmark-label: content();
 }
 h3, h4 {
     font-family: var(--serif-header-font);
@@ -44,6 +48,14 @@ h3, h4 {
     text-align: left;
     margin-block: 0.5em;
     page-break-after: avoid;
+}
+h3 {
+    bookmark-level: 3;
+    bookmark-label: content();
+}
+h4 {
+    bookmark-level: 4;
+    bookmark-label: content();
 }
 /* SVG圖片 */
 .picture-char {
