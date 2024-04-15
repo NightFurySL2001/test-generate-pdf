@@ -22,6 +22,7 @@
 * `webfont/I.Iosevka.otf`：字表中 Big5 碼使用的等寬字型。
 * `webfont/Inter-Regular.woff2`：字表中 Unicode 碼使用的無襯綫字型。
 * `webfont/I.MingWebVar.otf`：〈附錄一：變體部件表〉需要的異體字形。一個 Unicode 只能對應一個異體字形。如果某部件需要多過一個異體字形，需要存放進 `var/` 文件夾內。
+* `webfont/I.MingWebWriting.otf`：前言需要的手寫字形。
 
 排版使用的「一點明體」沒有存放於此倉庫，默認使用本地字體以保證排版時使用的是最新的字型版本。請確保電腦本地內裝有最新的 [`I.Ming-vX.XX.otf`](https://github.com/ichitenfont/I.Ming) 以顯示正確的字形。
 
