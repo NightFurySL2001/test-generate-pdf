@@ -66,6 +66,7 @@
 * "unicode"：字符的 Unicode。
 * "unicode2"：字符的第二個 Unicode。顯示在 "unicode" 下面
 * "shouldRemove"：應該移除的不恰當收字，値爲 true/false（沒有引號），排版時顯示為灰底深紅色。
+* "shouldUse"：應該使用的其他漢字，排版時暫未使用，暫時爲 informative
 * "repeated"：重複收字，値爲 true/false（沒有引號），排版時顯示為灰底綠色。
 * "comment"：註釋內容。可用 HTML 標記，如 `<br>` 表示換行。可接受圖片，使用 `<img src='文件夾/文件名.svg'>` 格式引入，文件名外面只能用單引號（'）。同樣ref的漢字只能有一個comment。
 * "ref"：引用標簽（tag），有相同ref的漢字會指向相同的註釋號碼。排版後ref內的文字tag不會顯示在文檔中。同樣ref的漢字只能有一個comment，否則可能會混淆。跨表（表一、二、三之間）無法引用。

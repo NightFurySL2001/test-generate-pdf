@@ -33,6 +33,10 @@ def verifyValidRecord(record):
     unichar = getUnicodeChar(record["unicode"])
     assert unichar == currentChar
 
+    # check should use is not current char
+    if "shouldUse" in record:
+        assert currentChar not in record["shouldUse"]
+
     # check big5
     if "big5" in record:
         charset = "cp950"
