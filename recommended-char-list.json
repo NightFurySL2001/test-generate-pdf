@@ -14355,7 +14355,8 @@
         [
             {"char":"⺜", "unicode":"2E9C", "big5":"C8DF", "hkscs":true},
             {"char":"⺕", "unicode":"2E95", "hkscs":true, "big5":"C8DE"},
-            {"char":"彐", "unicode":"5F50", "unicode2":"2F39", "hkscs":true, "big5":"C6D0"},
+            {"char":"㐄", "unicode":"3404"},
+            {"char":"丨", "unicode":"4E28", "hkscs":true, "big5":"8BC0"},
             {"char":"丯", "unicode":"4E2F", "hkscs":true, "big5":"8C72"},
             {"char":"丶", "unicode":"4E36", "hkscs":true, "big5":"C6BF"},
             {"char":"丿", "unicode":"4E3F", "hkscs":true, "big5":"C6C0"},
@@ -14382,7 +14383,7 @@
             {"char":"巛", "unicode":"5DDB", "hkscs":true, "big5":"C6CC"},
             {"char":"广", "unicode":"5E7F", "hkscs":true, "big5":"C6CE"},
             {"char":"廴", "unicode":"5EF4", "hkscs":true, "big5":"FBFD"},
-            {"char":"𫜹", "unicode":"2B739"},
+            {"char":"彐", "unicode":"5F50", "unicode2":"2F39", "hkscs":true, "big5":"C6D0"},
             {"char":"彑", "unicode":"5F51", "hkscs":true, "big5":"8BCA"},
             {"char":"彡", "unicode":"5F61", "hkscs":true, "big5":"C6D1"},
             {"char":"忄", "unicode":"5FC4", "hkscs":true, "big5":"8BCB"},
@@ -14421,6 +14422,7 @@
             {"char":"𢧵", "unicode":"229F5"},
             {"char":"𥨫", "unicode":"25A2B", "unicode2":"2B058"},
             {"char":"𪚴", "unicode":"2A6B4"},
+            {"char":"𫜹", "unicode":"2B739"},
             {"char":"𬟏", "unicode":"2C7CF"}
         ]
     }
