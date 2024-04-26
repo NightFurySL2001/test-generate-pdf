@@ -82,7 +82,7 @@
             "display-char": "強弘",
             "components": {
                 "強部件": {"type": "海", "display-char":"强"},
-                "弘部件": {"type": "海", "display-char":"𪪺"}
+                "弘部件": {"type": "天", "display-char":"𪪺"}
             }
         },
         {
@@ -169,6 +169,7 @@
     "單獨": [
         {"name": "巂部件", "type": "地", "display-char":"巂"},
         {"name": "齋部件", "type": "地", "display-char":"齋", "display-pic": "<img src='var/9F4B.svg'>"},
+        {"name": "暹部件", "type": "地", "display-char":"暹"},
         {"name": "蔑部件", "type": "地", "display-char":"蔑"},
         {"name": "電部件", "type": "地", "display-char":"電"},
         {"name": "粵部件", "type": "地", "display-char":"粵"},
@@ -187,6 +188,7 @@
         {"name": "𫩠部件", "type": "地", "display-char":"𫩠"},
         {"name": "朋部件", "type": "海", "display-char":"朋"},
         {"name": "夜部件", "type": "地", "display-char":"夜"},
+        {"name": "医部件", "type": "海", "display-char":"医", "ref": "表三"},
         {"name": "肖部件", "type": "天", "display-char":"肖"},
         {"name": "呂/吕部件", "type": "天", "display-char":"呂"},
         {"name": "吳部件", "type": "天", "display-char":"吳"},
