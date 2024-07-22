@@ -269,7 +269,7 @@ section#endcover {
     }
     @page {  
         @top-right {
-            content: "版本：" var(--version-number, '加載文件失敗');
+            content: "版本：" var(--version-number, '加載資料失敗，請刷新頁面');
             vertical-align: bottom;
         }
     }
