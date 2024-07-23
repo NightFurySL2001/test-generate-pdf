@@ -335,8 +335,12 @@ function setImageCSS(node){
 }
 
 function parseContentData(data){
-    // 更新文檔版本
+    // 更新文檔meta信息版本
     document.querySelector('meta[name="version"]').setAttribute("content", data["版本"]);
+    document.querySelector('meta[name="description"]').setAttribute(
+        "content", 
+        document.querySelector('meta[name="description"]').getAttribute('content') + data["版本"] + "版"
+    );
     document.documentElement.style.setProperty('--version-number', JSON.stringify(data["版本"]));
     // 尾頁版本和日期
     document.querySelector('section#endcover span#version').innerText += data["版本"];
