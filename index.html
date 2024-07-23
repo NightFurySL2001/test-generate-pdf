@@ -180,10 +180,9 @@
 </body>
 
 
-<script async src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
 <script src="index.js"></script>
 <script type="module">
-import BrowserDetector from './browser-dtector.js';
+import BrowserDetector from './js/browser-dtector.js';
 
 // 文件進行排版
 window.PagedConfig = {
@@ -211,6 +210,10 @@ window.PagedConfig = {
 
         // 下載文件和排版
         return await Promise.allSettled([
+            new Promise((resolve) => {
+                // 額外等待文件加載2秒避免文件未完成加載
+                setTimeout(resolve, 2000);
+            }),
             fetch("recommended-char-list.json")
             .then(response => response.json())
             .then(responseText => {
@@ -229,4 +232,5 @@ window.PagedConfig = {
 }
 
 </script>
+<script async src="./js/paged.polyfill.min.js"></script>
 </html>
