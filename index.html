@@ -186,8 +186,7 @@
 </body>
 
 
-<script src="index.js"></script>
-<script async src="./js/paged.polyfill.min.js"></script>
+<script async src="index.js"></script>
 <script type="module">
 import BrowserDetector from './js/browser-dtector.js';
 
@@ -217,10 +216,10 @@ window.PagedConfig = {
 
         // 下載文件和排版
         return await Promise.allSettled([
-            new Promise((resolve) => {
-                // 額外等待文件加載2秒避免文件未完成加載
-                setTimeout(resolve, 2000);
-            }),
+            // new Promise((resolve) => {
+            //     // 額外等待文件加載2秒避免文件未完成加載
+            //     setTimeout(resolve, 2000);
+            // }),
             fetch("recommended-char-list.json")
             .then(response => response.json())
             .then(responseText => {
@@ -239,4 +238,5 @@ window.PagedConfig = {
 }
 
 </script>
+<script defer src="./js/paged.polyfill.min.js"></script>
 </html>
