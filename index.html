@@ -186,19 +186,16 @@
 </body>
 
 
-<script async src="index.js"></script>
-<script type="module">
+<script async src="./js/paged.polyfill.min.js"></script>
+<script defer type="module">
 import BrowserDetector from './js/browser-dtector.js';
+import {parseContentData, parseAppendixData} from './index.js';
 
 // 文件進行排版
 window.PagedConfig = {
     auto: false,
-    before: async function() {
+    after: () => {
         class PopupHandler extends Paged.Handler {
-            constructor(chunker, polisher, caller) {
-                super(chunker, polisher, caller);
-            }
-            
             afterRendered(pages) {
                 // 在完成排版後提示完成
                 alert(`排版完成，共有 ${pages.length} 頁。`);
@@ -208,28 +205,20 @@ window.PagedConfig = {
             }
         }
         // 注冊提示例程
-        Paged.registerHandlers(PopupHandler);
+        window.Paged.registerHandlers(PopupHandler);
 
         // 檢查瀏覽器版本
         const browser_info = new BrowserDetector(window.navigator.userAgent).parseUserAgent();
         document.getElementById("browser-version").innerText = browser_info["name"] + " " + browser_info["shortVersion"];
 
         // 下載文件和排版
-        return await Promise.allSettled([
-            // new Promise((resolve) => {
-            //     // 額外等待文件加載2秒避免文件未完成加載
-            //     setTimeout(resolve, 2000);
-            // }),
+        Promise.allSettled([
             fetch("recommended-char-list.json")
-            .then(response => response.json())
-            .then(responseText => {
-                parseContentData(responseText)
-            }),
+                .then(response => response.json())
+                .then(parseContentData),
             fetch("variant-forms.json")
-            .then(response => response.json())
-            .then(responseText => {
-                parseAppendixData(responseText)
-            })
+                .then(response => response.json())
+                .then(parseAppendixData)
         ])
         // 才進行預覽
         .then(() => {window.PagedPolyfill.preview();})
@@ -238,5 +227,5 @@ window.PagedConfig = {
 }
 
 </script>
-<script defer src="./js/paged.polyfill.min.js"></script>
+
 </html>

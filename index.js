@@ -1,3 +1,5 @@
+export {parseContentData, parseAppendixData};
+
 /************ 內容表 *************/
 const char_per_row = 8;
 
@@ -172,7 +174,7 @@ function createHanziCell(item, parsedRefs) {
     
     //註釋/註釋引用
     if ('comment' in item || 'ref' in item) {
-        refTag = parseEndnote(item, parsedRefs);
+        let refTag = parseEndnote(item, parsedRefs);
         newCell.appendChild(refTag);
     }
 
@@ -327,7 +329,7 @@ function generateFootnotes(parsedRefs, refEndnotesNode, uniqueTag, addTagBehindC
 }
 
 function setImageCSS(node){
-    picturesInText = node.querySelectorAll("img");
+    let picturesInText = node.querySelectorAll("img");
     // 將註釋裏面的圖片加上 CSS class 進行格式定義
     picturesInText.forEach(element => {
         element.classList.add('picture-char')
@@ -347,20 +349,20 @@ function parseContentData(data){
     document.querySelector('section#endcover span#edit-date').innerText += data["日期"];
 
     // 處理表一
-    table1 = document.getElementById("chap1-charlist");
-    refEndnotes1 = document.getElementById("chap1-endnotes");
+    let table1 = document.getElementById("chap1-charlist");
+    let refEndnotes1 = document.getElementById("chap1-endnotes");
     generateNormalTable(data["表一"], table1, refEndnotes1, 'table1');
     setImageCSS(refEndnotes1)
     
     // 處理表二
-    table2 = document.getElementById("chap2-charlist");
-    refEndnotes2 = document.getElementById("chap2-endnotes");
+    let table2 = document.getElementById("chap2-charlist");
+    let refEndnotes2 = document.getElementById("chap2-endnotes");
     generateNormalTable(data["表二"], table2, refEndnotes2, 'table2');
     setImageCSS(refEndnotes2)
 
     // 處理表三，不同格式
-    table3 = document.getElementById("chap3-charlist");
-    refEndnotes3 = document.getElementById("chap3-endnotes");
+    let table3 = document.getElementById("chap3-charlist");
+    let refEndnotes3 = document.getElementById("chap3-endnotes");
     generateSectionedTable(data["表三"], table3, refEndnotes3, 'table3');
     setImageCSS(refEndnotes3)
 }
@@ -499,7 +501,7 @@ function generateAppendixIndividualTable(componentList) {
 
         //註釋/註釋引用
         if ('comment' in component || 'ref' in component) {
-            refTag = parseEndnote(component, parsedRefs);
+            let refTag = parseEndnote(component, parsedRefs);
             newCell.appendChild(refTag);
         }
 
@@ -517,7 +519,7 @@ function generateAppendixIndividualTable(componentList) {
         newRow.appendChild(fitCell);
     }
 
-    generateFootnotes(parsedRefs, refEndnotesNode, 'appendix1', addTagBehindComment=false)
+    generateFootnotes(parsedRefs, refEndnotesNode, 'appendix1', false)
     setImageCSS(tableNode);
     setImageCSS(refEndnotesNode);
 }
