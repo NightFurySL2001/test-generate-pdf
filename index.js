@@ -1,4 +1,4 @@
-export {parseContentData, parseAppendixData};
+export {parseContentData, parseAppendixData, addWebfontCss};
 
 /************ 內容表 *************/
 const char_per_row = 8;
@@ -522,4 +522,23 @@ function generateAppendixIndividualTable(componentList) {
     generateFootnotes(parsedRefs, refEndnotesNode, 'appendix1', false)
     setImageCSS(tableNode);
     setImageCSS(refEndnotesNode);
+}
+
+function addWebfontCss() {
+    var link = document.createElement('link');
+
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = 'https://cdn.jsdelivr.net/gh/ichitenfont/I.MingWebfont/I.Ming/I.Ming.css';
+
+    // event listeners for load and error
+    link.onload = function() {
+        console.log('CSS file loaded successfully!');
+    };
+    link.onerror = function() {
+        console.error('Error loading CSS file!');
+    };
+
+    // Append the link element to the <head> of the document
+    document.head.appendChild(link);
 }

@@ -188,7 +188,7 @@
 
 <script type="module">
 import BrowserDetector from './js/browser-dtector.js';
-import {parseContentData, parseAppendixData} from './index.js';
+import {parseContentData, parseAppendixData, addWebfontCss} from './index.js';
 
 // 文件進行排版
 window.PagedConfig = {
@@ -221,6 +221,11 @@ window.PagedConfig = {
         ])
         // 才進行預覽
         .then(() => {window.PagedPolyfill.preview();})
+        .then(() => {
+            // 彈窗詢問是否使用網頁字型
+            const useWebfont = confirm("是否要啟用網頁字型？\n（選擇「確定」以確保顯示效果，選擇「取消」以使用系統字型）");
+            if (useWebfont) addWebfontCss();
+        })
         .catch((reason) => {alert("加載失敗，請刷新重試："+reason.toString())})
     }
 }
